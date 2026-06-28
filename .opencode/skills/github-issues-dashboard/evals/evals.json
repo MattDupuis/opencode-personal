@@ -1,0 +1,107 @@
+{
+  "skill_name": "github-issues-dashboard",
+  "evals": [
+    {
+      "id": 1,
+      "name": "basic-assigned-query",
+      "prompt": "what issues are assigned to me on GitHub?",
+      "expected_output": "A markdown dashboard showing open items grouped by repository with role badges ([assigned]/[author]/[mentioned]) and type badges ([issue]/[pr]) on every item, repository headings with 📦 prefix, and a summary footer",
+      "files": [],
+      "assertions": [
+        {
+          "name": "role-badges-on-every-item",
+          "text": "Every item has a role badge: [assigned], [author], or [mentioned]",
+          "category": "format"
+        },
+        {
+          "name": "type-badges-on-every-item",
+          "text": "Every item has a type badge: [issue] or [pr]",
+          "category": "format"
+        },
+        {
+          "name": "repo-headings-with-box",
+          "text": "Repository headings use the 📦 prefix",
+          "category": "format"
+        },
+        {
+          "name": "grouped-by-repo",
+          "text": "Output is grouped by repository with ## headings",
+          "category": "format"
+        },
+        {
+          "name": "summary-footer",
+          "text": "Output includes a summary footer showing total count and repo count",
+          "category": "format"
+        },
+        {
+          "name": "uses-search-issues",
+          "text": "Uses gh search issues with --assignee @me and --include-prs",
+          "category": "correctness"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "mentions-query",
+      "prompt": "show me what I'm mentioned in on GitHub",
+      "expected_output": "A markdown dashboard showing open items where the user is @mentioned (plus any assigned items) with role and type badges on every line",
+      "files": [],
+      "assertions": [
+        {
+          "name": "merged-results",
+          "text": "Output includes items from both assigned and mentions queries",
+          "category": "correctness"
+        },
+        {
+          "name": "role-badges",
+          "text": "Every item has [assigned], [author], or [mentioned] badge",
+          "category": "format"
+        },
+        {
+          "name": "type-badges",
+          "text": "Every item has [issue] or [pr] badge",
+          "category": "format"
+        },
+        {
+          "name": "dashboard-format",
+          "text": "Output uses 📦 repo headings and summary footer",
+          "category": "format"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "include-closed",
+      "prompt": "show me my full GitHub workload, open and closed items",
+      "expected_output": "A markdown dashboard showing items across all states (open, closed, merged) with role badges, type badges, and state icons for non-open items",
+      "files": [],
+      "assertions": [
+        {
+          "name": "includes-closed",
+          "text": "Output includes items with state ❌ or ✅ icons (closed/merged)",
+          "category": "correctness"
+        },
+        {
+          "name": "no-state-filter",
+          "text": "Search does not filter by 'state:open'",
+          "category": "correctness"
+        },
+        {
+          "name": "role-badges",
+          "text": "Every item has [assigned], [author], or [mentioned] badge",
+          "category": "format"
+        },
+        {
+          "name": "type-badges",
+          "text": "Every item has [issue] or [pr] badge",
+          "category": "format"
+        },
+        {
+          "name": "dashboard-format",
+          "text": "Output uses 📦 repo headings and summary footer",
+          "category": "format"
+        }
+      ]
+    }
+  ]
+}
