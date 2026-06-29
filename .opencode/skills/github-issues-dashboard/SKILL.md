@@ -26,7 +26,7 @@ Decide what to show and store the result as `{state_qualifier}`:
 - **Default**: open items only → `{state_qualifier}` = `"state:open"`
 - **Toggle**: If the user asks for closed, all, or any other state, use that as the search qualifier instead.
   - closed → `{state_qualifier}` = `"state:closed"`
-  - all → `{state_qualifier}` = `""` (omit the state qualifier entirely)
+  - all → `{state_qualifier}` = *(empty — omit the state qualifier argument entirely)*
   - Any other state → set accordingly
 
 Every later step that constructs a search query uses `{state_qualifier}` in place of a hardcoded state filter.
