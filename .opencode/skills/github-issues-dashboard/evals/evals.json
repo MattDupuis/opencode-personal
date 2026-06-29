@@ -5,7 +5,7 @@
       "id": 1,
       "name": "basic-assigned-query",
       "prompt": "what issues are assigned to me on GitHub?",
-      "expected_output": "A markdown dashboard showing open items grouped by repository with role badges ([assigned]/[author]/[mentioned]) and type badges ([issue]/[pr]) on every item, repository headings with 📦 prefix, and a summary footer",
+      "expected_output": "A markdown dashboard showing open items grouped by repository with role badges ([assigned]/[author]/[mentioned]) and type badges ([issue]/[pr]) on every item, repository headings with 📦 prefix, a summary footer, and the dashboard is saved to the Obsidian inbox as a dated markdown file",
       "files": [],
       "assertions": [
         {
@@ -37,6 +37,11 @@
           "name": "uses-search-issues",
           "text": "Uses gh search issues with --assignee @me and --include-prs",
           "category": "correctness"
+        },
+        {
+          "name": "saves-to-obsidian-inbox",
+          "text": "Saves the dashboard markdown to the Obsidian inbox as a dated file",
+          "category": "correctness"
         }
       ]
     },
@@ -44,7 +49,7 @@
       "id": 2,
       "name": "mentions-query",
       "prompt": "show me what I'm mentioned in on GitHub",
-      "expected_output": "A markdown dashboard showing open items where the user is @mentioned (plus any assigned items) with role and type badges on every line",
+      "expected_output": "A markdown dashboard showing open items where the user is @mentioned (plus any assigned items) with role and type badges on every line, saved to the Obsidian inbox as a dated markdown file",
       "files": [],
       "assertions": [
         {
@@ -66,6 +71,11 @@
           "name": "dashboard-format",
           "text": "Output uses 📦 repo headings and summary footer",
           "category": "format"
+        },
+        {
+          "name": "saves-to-obsidian-inbox",
+          "text": "Saves the dashboard markdown to the Obsidian inbox as a dated file",
+          "category": "correctness"
         }
       ]
     },
@@ -73,7 +83,7 @@
       "id": 3,
       "name": "include-closed",
       "prompt": "show me my full GitHub workload, open and closed items",
-      "expected_output": "A markdown dashboard showing items across all states (open, closed, merged) with role badges, type badges, and state icons for non-open items",
+      "expected_output": "A markdown dashboard showing items across all states (open, closed, merged) with role badges, type badges, and state icons for non-open items, saved to the Obsidian inbox as a dated markdown file",
       "files": [],
       "assertions": [
         {
@@ -100,6 +110,11 @@
           "name": "dashboard-format",
           "text": "Output uses 📦 repo headings and summary footer",
           "category": "format"
+        },
+        {
+          "name": "saves-to-obsidian-inbox",
+          "text": "Saves the dashboard markdown to the Obsidian inbox as a dated file",
+          "category": "correctness"
         }
       ]
     }
