@@ -11,18 +11,25 @@ Shows a consolidated view of all GitHub issues and pull requests assigned to the
 
 ### 1. Get the GitHub username
 
-Parse the logged-in username from `gh auth status`:
+Retrieve the logged-in username using the GitHub API:
 
 ```bash
-gh auth status 2>&1 | grep -oP 'account\s+\K\S+'
+gh api user --jq '.login'
 ```
 
 If `gh` is not authenticated, tell the user and guide them to run `gh auth login --scopes "repo,read:org"`.
 
 ### 2. Determine the state filter
 
-- **Default**: open issues only (`"state:open"`)
-- **Toggle**: If the user asks for closed, all, or any other state, use that as the search qualifier instead. Exact phrasing: closed → `"state:closed"`, all → omit the state qualifier entirely.
+Decide what to show and store the result as `{state_qualifier}`:
+
+- **Default**: open items only → `{state_qualifier}` = `"state:open"`
+- **Toggle**: If the user asks for closed, all, or any other state, use that as the search qualifier instead.
+  - closed → `{state_qualifier}` = `"state:closed"`
+  - all → `{state_qualifier}` = `""` (omit the state qualifier entirely)
+  - Any other state → set accordingly
+
+Every later step that constructs a search query uses `{state_qualifier}` in place of a hardcoded state filter.
 
 ### 3. Run cross-repo searches
 
@@ -30,11 +37,11 @@ Run these two queries in parallel using `gh search issues`. Always include `--in
 
 ```bash
 # Issues/PRs assigned to the user
-gh search issues "state:open" --assignee "@me" --include-prs --limit 50 \
+gh search issues {state_qualifier} --assignee "@me" --include-prs --limit 50 \
   --json title,url,repository,state,number,updatedAt,author,isPullRequest
 
 # Issues/PRs mentioning the user
-gh search issues "state:open" --mentions {username} --include-prs --limit 50 \
+gh search issues {state_qualifier} --mentions {username} --include-prs --limit 50 \
   --json title,url,repository,state,number,updatedAt,author,isPullRequest
 ```
 
@@ -69,7 +76,7 @@ Use this format:
 # GitHub Issues Dashboard ({state filter})
 
 ## 📦 {org}/{repo}
-- [{role}] [{type}]{state_icon} [[#{number}]]({url}) {title} ({date})
+- [{role}] [{type}]{state_icon} [#{number}]({url}) {title} ({date})
 ```
 
 **Role badges** (always shown, every item):
@@ -94,11 +101,11 @@ After the grouped list:
 
 ```markdown
 ---
-{total} open items across {repo_count} repositories
+{total} {state_label} items across {repo_count} repositories
 Say "show closed" or "show all" to change the filter.
 ```
 
-When showing closed or merged items, the summary should reflect the total count.
+The `{state_label}` should match the current filter: `"open"`, `"closed"`, or `""` (omit the word — just "items"). For mixed views like "open and closed", use "open/closed".
 
 ### 7. Save to Obsidian inbox and display
 
@@ -111,9 +118,10 @@ The Inbox/ subdirectory is where new notes land:
 /mnt/c/Users/m.dupuis/OneDrive - TechSmith Corporation/Documents/Obsidian/Bag Of Holding/Inbox/
 ```
 
-Write the full formatted dashboard to a markdown file in the inbox with a dated filename:
+Create the inbox directory if it doesn't exist, then write the full formatted dashboard to a dated markdown file:
 
 ```bash
+mkdir -p "/mnt/c/Users/m.dupuis/OneDrive - TechSmith Corporation/Documents/Obsidian/Bag Of Holding/Inbox"
 cat > "/mnt/c/Users/m.dupuis/OneDrive - TechSmith Corporation/Documents/Obsidian/Bag Of Holding/Inbox/$(date +%Y-%m-%d) GitHub Issues Dashboard.md" << 'DASHBOARD_EOF'
 {dashboard content}
 DASHBOARD_EOF
