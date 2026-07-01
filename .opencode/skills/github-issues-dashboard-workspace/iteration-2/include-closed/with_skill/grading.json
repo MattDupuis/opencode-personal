@@ -1,0 +1,6 @@
+{"eval_name": "include-closed", "variant": "with_skill", "expectations": [
+  {"text": "includes-closed", "passed": true, "evidence": "Found 60 closed/merged state icons"},
+  {"text": "role-badges", "passed": true, "evidence": "Found 88 role badges"},
+  {"text": "type-badges", "passed": true, "evidence": "Found 88 type badges"},
+  {"text": "dashboard-format", "passed": true, "evidence": "📦: 16, repos: 16, footer: 1"}
+]}

@@ -1,0 +1,27 @@
+{
+  "eval_id": 3,
+  "eval_name": "include-closed",
+  "prompt": "show me my full GitHub workload, open and closed items",
+  "assertions": [
+    {
+      "name": "includes-closed",
+      "text": "Output includes closed or merged items, not just open ones",
+      "category": "correctness"
+    },
+    {
+      "name": "no-state-filter",
+      "text": "Search does not filter by 'state:open'",
+      "category": "correctness"
+    },
+    {
+      "name": "state-icons",
+      "text": "Uses state icons (checkmark, x) to distinguish closed/merged items",
+      "category": "format"
+    },
+    {
+      "name": "dashboard-format",
+      "text": "Output uses the dashboard format with repo grouping and footer",
+      "category": "format"
+    }
+  ]
+}

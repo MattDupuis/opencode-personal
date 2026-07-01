@@ -1,0 +1,6 @@
+{"eval_name": "basic-assigned-query", "variant": "with_skill", "expectations": [
+  {"text": "grouped-by-repo", "passed": true, "evidence": "Found 12 repo section headings"},
+  {"text": "issue-numbers", "passed": true, "evidence": "Found 54 issue references with #"},
+  {"text": "summary-footer", "passed": true, "evidence": "Footer found: 1 matches"},
+  {"text": "assigned-badge", "passed": true, "evidence": "Badge found in 41 lines"}
+]}

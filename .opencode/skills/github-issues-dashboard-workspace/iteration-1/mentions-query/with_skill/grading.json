@@ -1,0 +1,5 @@
+{"eval_name": "mentions-query", "variant": "with_skill", "expectations": [
+  {"text": "merged-results", "passed": true, "evidence": "Found 41 lines with assigned badge"},
+  {"text": "dashboard-format", "passed": true, "evidence": "Found 12 repo section headings"},
+  {"text": "summary-footer", "passed": true, "evidence": "Footer found: 1 matches"}
+]}

@@ -1,0 +1,6 @@
+{"eval_name": "basic-assigned-query", "variant": "without_skill", "expectations": [
+  {"text": "grouped-by-repo", "passed": true, "evidence": "Found 1 repo section headings"},
+  {"text": "issue-numbers", "passed": false, "evidence": "Found 0 issue references with #"},
+  {"text": "summary-footer", "passed": false, "evidence": "Footer found: 0 matches"},
+  {"text": "assigned-badge", "passed": false, "evidence": "Badge found in 0 lines"}
+]}
