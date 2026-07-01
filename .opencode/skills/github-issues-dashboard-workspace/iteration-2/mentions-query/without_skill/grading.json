@@ -1,0 +1,5 @@
+{"eval_name": "mentions-query", "variant": "without_skill", "expectations": [
+  {"text": "role-badges", "passed": false, "evidence": "Found 0 role badges"},
+  {"text": "type-badges", "passed": false, "evidence": "Found 0 type badges"},
+  {"text": "dashboard-format", "passed": false, "evidence": "📦: 0, repos: 4, footer: 0"}
+]}

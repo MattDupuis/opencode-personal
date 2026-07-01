@@ -1,0 +1,6 @@
+{"eval_name": "include-closed", "variant": "without_skill", "expectations": [
+  {"text": "includes-closed", "passed": false, "evidence": "Found 0 closed/merged state icons"},
+  {"text": "role-badges", "passed": false, "evidence": "Found 0 role badges"},
+  {"text": "type-badges", "passed": false, "evidence": "Found 0 type badges"},
+  {"text": "dashboard-format", "passed": false, "evidence": "📦: 0, repos: 5, footer: 0"}
+]}

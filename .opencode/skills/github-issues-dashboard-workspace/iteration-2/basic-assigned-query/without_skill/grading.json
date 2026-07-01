@@ -1,0 +1,7 @@
+{"eval_name": "basic-assigned-query", "variant": "without_skill", "expectations": [
+  {"text": "role-badges-on-every-item", "passed": false, "evidence": "Found 0 role badge occurrences"},
+  {"text": "type-badges-on-every-item", "passed": false, "evidence": "Found 0 type badge occurrences"},
+  {"text": "repo-headings-with-box", "passed": false, "evidence": "📦 prefix found: 0 times"},
+  {"text": "grouped-by-repo", "passed": true, "evidence": "Found 5 repo headings"},
+  {"text": "summary-footer", "passed": false, "evidence": "Footer found: 0"}
+]}

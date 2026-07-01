@@ -1,0 +1,6 @@
+{"eval_name": "include-closed", "variant": "with_skill", "expectations": [
+  {"text": "includes-closed", "passed": true, "evidence": "Found 55 closed items"},
+  {"text": "no-state-filter", "passed": true, "evidence": "state:open in output: no"},
+  {"text": "state-icons", "passed": true, "evidence": "Found 55 ❌ and 4 ✅ icons"},
+  {"text": "dashboard-format", "passed": true, "evidence": "Found 16 repo sections, footer: 1"}
+]}

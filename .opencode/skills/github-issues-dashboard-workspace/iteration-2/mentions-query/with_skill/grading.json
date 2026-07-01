@@ -1,0 +1,5 @@
+{"eval_name": "mentions-query", "variant": "with_skill", "expectations": [
+  {"text": "role-badges", "passed": true, "evidence": "Found 48 role badges"},
+  {"text": "type-badges", "passed": true, "evidence": "Found 48 type badges"},
+  {"text": "dashboard-format", "passed": true, "evidence": "📦: 12, repos: 12, footer: 1"}
+]}

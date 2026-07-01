@@ -1,0 +1,22 @@
+{
+  "eval_id": 2,
+  "eval_name": "mentions-query",
+  "prompt": "show me what I'm mentioned in on GitHub",
+  "assertions": [
+    {
+      "name": "merged-results",
+      "text": "Output includes items from both assigned and mentions queries",
+      "category": "correctness"
+    },
+    {
+      "name": "dashboard-format",
+      "text": "Output uses the dashboard format with repo grouping",
+      "category": "format"
+    },
+    {
+      "name": "summary-footer",
+      "text": "Output includes a summary footer",
+      "category": "format"
+    }
+  ]
+}

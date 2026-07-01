@@ -1,0 +1,27 @@
+{
+  "eval_id": 1,
+  "eval_name": "basic-assigned-query",
+  "prompt": "what issues are assigned to me on GitHub?",
+  "assertions": [
+    {
+      "name": "grouped-by-repo",
+      "text": "Output is grouped by repository with ## repo-name headings",
+      "category": "format"
+    },
+    {
+      "name": "issue-numbers",
+      "text": "Issue numbers are shown with #[number] format",
+      "category": "format"
+    },
+    {
+      "name": "summary-footer",
+      "text": "Output includes a summary footer showing total count and repos",
+      "category": "format"
+    },
+    {
+      "name": "assigned-badge",
+      "text": "Assigned items are marked with '← assigned' badge",
+      "category": "format"
+    }
+  ]
+}
